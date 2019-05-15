@@ -1,1 +1,55 @@
 @import '~bootstrap/scss/bootstrap';
+
+$alt-color: $cyan;
+$body-bg-color: $gray-200;
+$font-color: $light;
+
+body {
+  background-color: $body-bg-color;
+  text-align: center;
+}
+
+.box {
+  align-items: center;
+  background-color: $secondary;
+  border: 1px solid $white;
+  color: $font-color;
+  display: flex;
+  height: 25vh;
+  justify-content: center;
+  &:hover {
+    background-color: $secondary;
+    transition: .3s;
+  }
+}
+
+button {
+  margin: 10px;
+}
+
+form {
+  display: inline;
+}
+
+.alt-color {
+  background-color: $alt-color;
+}
+
+.gameboard {
+  width: 75vh;
+}
+
+.row {
+  align-content: center;
+  justify-content: center;
+}
+
+.containter {
+  justify-content: center;
+  margin: 40px;
+  padding: 30px;
+}
+
+.nav {
+  justify-content: center;
+}
