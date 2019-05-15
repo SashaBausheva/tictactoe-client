@@ -22,7 +22,7 @@ const onSignIn = event => {
     .catch(ui.onSignInFailure)
 }
 
-const changePassword = event => {
+const onChangePassword = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
@@ -34,5 +34,5 @@ const changePassword = event => {
 module.exports = {
   onSignUp,
   onSignIn,
-  changePassword
+  onChangePassword
 }

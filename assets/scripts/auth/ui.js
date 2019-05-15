@@ -1,5 +1,7 @@
 'use strict'
 
+const store = require('../store')
+
 const onSignUpSuccess = responseData => {
   $('h3').html('')
   $('#message').html('Signed up successfully! <br /> <img src="https://media.giphy.com/media/RyXVu4ZW454IM/giphy.gif" width="200px">')
@@ -13,6 +15,8 @@ const onSignUpFailure = responseData => {
 const onSignInSuccess = responseData => {
   $('h3').html('')
   $('#message').html('Signed in successfully! <br /> <img src="https://media.giphy.com/media/RyXVu4ZW454IM/giphy.gif" width="200px">')
+
+  store.user = responseData.user
 }
 
 const onSignInFailure = responseData => {
@@ -21,13 +25,11 @@ const onSignInFailure = responseData => {
 }
 
 const onChangePasswordSuccess = responseData => {
-  $('h3').html('')
-  $('#message').html('Successfully changed password! <br /> <img src="https://media.giphy.com/media/RyXVu4ZW454IM/giphy.gif" width="200px">')
+  $('#change-pw-message').html('<br />Password changed successfully!')
 }
 
 const onChangePasswordFailure = responseData => {
-  $('h3').html('')
-  $('#message').html('Failed to change password')
+  $('#change-pw-message').html('<br />Failed!')
 }
 
 module.exports = {

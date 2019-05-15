@@ -57,24 +57,28 @@
               </div>
 
               <!-- Change Password Modal -->
-         <div class="modal" id="change-pw" tabindex="-1" role="dialog" aria-hidden="true">
-           <div class="modal-dialog modal-dialog-centered" role="document">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <label for="change-pw">Change Password</label>
-               </div>
-               <div class="modal-body">
-                 <form id="change-password">
-                   <input name="passwords[old]" type="password" placeholder="Old Password">
-                   <input name="passwords[new]" type="password" placeholder="New Password">
-                   <input type="submit" value="Change It!">
-                   <br>
-                   <div id="alert-message"></div>
-                 </form>
-               </div>
-             </div>
-           </div>
-         </div>
+              <div class="modal fade" id="change-pw" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="changePasswordModalTitle">Change Password</h5>
+                      <p id="change-pw-message"></p>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="change-password">
+                        <input name="passwords[old]" type="password" placeholder="Old Password">
+                        <input name="passwords[new]" type="password" placeholder="New Password">
+                        <input type="submit" value="Change It!">
+                        <br/>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
 
        </header>
 
