@@ -32,11 +32,23 @@ const onChangePasswordFailure = responseData => {
   $('#change-pw-message').html('<br />Failed!')
 }
 
+const onSignOutSuccess = () => {
+  $('h3').html('')
+  $('#message').html('Signed out successfully! <br /> <img src="https://media.giphy.com/media/RyXVu4ZW454IM/giphy.gif" width="200px">')
+}
+
+const onSignOutFailure = () => {
+  $('h3').html('')
+  $('#message').html('Failed to sign out')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
   onChangePasswordSuccess,
-  onChangePasswordFailure
+  onChangePasswordFailure,
+  onSignOutSuccess,
+  onSignOutFailure
 }
