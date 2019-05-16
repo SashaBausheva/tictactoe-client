@@ -42,12 +42,15 @@ const winningCombos = gameBoard => {
   (gameBoard[2] && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6])) {
     store.over = true
     console.log('over' + store.over)
+    $('#message').html(`Game over! Amazing player ${store.player} wins!`)
     return true
   } else if (store.turn === 9) {
     console.log('its a tie')
+    $('#message').html(`it's a tie!`)
+    store.over = true
   } else {
     store.over = false
-    console.log('over' + store.over)
+    console.log('game is not over')
   }
 }
 
