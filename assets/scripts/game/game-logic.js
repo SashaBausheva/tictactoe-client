@@ -45,9 +45,9 @@ const winningCombos = gameBoard => {
     $('#message').html(`Game over! Amazing player ${store.player} wins!`)
     return true
   } else if (store.turn === 9) {
-    console.log('its a tie')
-    $('#message').html(`it's a tie!`)
+    $('#message').html(`iiiit's a tie!`)
     store.over = true
+    return true
   } else {
     store.over = false
     console.log('game is not over')

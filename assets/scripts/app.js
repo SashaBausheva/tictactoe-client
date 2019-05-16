@@ -30,4 +30,5 @@ $(() => {
 
   $('.box').on('click', gameEvents.onUpdateGame)
   $('#create-games').on('click', gameEvents.onCreateGames)
+  $('#get-games').on('click', gameEvents.onGetGames)
 })

@@ -34,7 +34,20 @@ const updateGame = (index, value, over) => {
   )
 }
 
+const getGames = () => {
+  // console.log('create game is invoked')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    contentType: 'application/json',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createGame,
-  updateGame
+  updateGame,
+  getGames
 }

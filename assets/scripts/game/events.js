@@ -25,16 +25,27 @@ const onUpdateGame = event => {
   const id = event.target.id
   const cell = event.target
   store.id = id
-  if (!gameLogic.gameBoard[id]) {}
-  api.updateGame(store.id, store.player, store.over)
-    .then(ui.onUpdateGameSuccess(store.id, cell))
-    .catch(ui.onFailure)
-  store.turn++
-  console.log(store.cells)
+  if (!store.over) {
+    api.updateGame(store.id, store.player, store.over)
+      .then(ui.onUpdateGameSuccess(store.id, cell))
+      .catch(ui.onFailure)
+    store.turn++
+    console.log(store.cells)
+  } else {
+    $('#message').html(`Sorry, the game's over!`)
+  }
   // console.log(store.over)
+}
+
+const onGetGames = event => {
+  event.preventDefault()
+  api.getGames()
+    .then(ui.onGetGamesSuccess)
+    .catch(ui.Failure)
 }
 
 module.exports = {
   onUpdateGame,
-  onCreateGames
+  onCreateGames,
+  onGetGames
 }
