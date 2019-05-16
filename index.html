@@ -26,13 +26,13 @@
 
         <h1>Tic Tac Toe</h1>
         <hr>
+        <p id="sign-in-message"></p>
 
         <!-- Login Header -->
             <header>
               <!-- <p id="user-message"></p> -->
 
               <div class="auth-forms" id="auth-forms">
-                <p id="message"></p>
 
                 <form id="sign-up">
                   <div class="container form-group">
@@ -62,7 +62,6 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="changePasswordModalTitle">Change Password</h5>
-                      <p id="change-pw-message"></p>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -82,12 +81,13 @@
 
        </header>
 
-        <h3>Game Status</h3>
+        <h3 id="game-status">Game Status</h3>
+        <p id="message"></p>
 
       <!-- Board Grid -->
       <!-- required 'container' class wrapper for our rows/columns -->
 
-      <div class="container gameboard">
+      <div class="container gameboard" id="gameboard">
 
         <div class="row">
           <div data-cell-index="0" id="0" class="col-4 box alt-color"></div>
@@ -101,8 +101,8 @@
           <div data-cell-index="8" id="8" class="col-4 box alt-color"></div>
         </div>
       </div>
-      <div class="game-buttons">
-      <button id="create-games">Reset</button>
+      <div id="game-buttons">
+      <button id="create-games">New Game</button>
       <hr>
       <button id="get-games">See All Games Played</button>
     </div>

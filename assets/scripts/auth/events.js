@@ -4,6 +4,11 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
+document.getElementById('sign-up').style.display = 'none'
+document.getElementById('sign-in').style.display = 'none'
+document.getElementById('change-password-btn').style.display = 'none'
+document.getElementById('sign-out-btn').style.display = 'none'
+
 const onSignUp = event => {
   event.preventDefault()
   const form = event.target // this is referring to the form, which comes from onSignUp

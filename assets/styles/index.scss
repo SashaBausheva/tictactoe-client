@@ -27,8 +27,13 @@ button {
   margin: 10px;
 }
 
-form {
+#sign-out {
   display: inline;
+}
+
+.auth-forms {
+  margin: 0 auto;
+  width: 50vh;
 }
 
 .alt-color {

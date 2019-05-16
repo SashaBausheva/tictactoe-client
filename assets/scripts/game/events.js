@@ -4,8 +4,12 @@
 const gameLogic = require('./game-logic')
 const store = require('../store')
 const ui = require('./ui')
+const api = require('./api')
 // const getFormFields = require('../../../lib/get-form-fields')
 
+document.getElementById('gameboard').style.display = 'none'
+document.getElementById('game-status').style.display = 'none'
+document.getElementById('game-buttons').style.display = 'none'
 let playerTurn
 
 const isCellFree = id => {
@@ -18,15 +22,35 @@ const isCellFree = id => {
   return free
 }
 
+const onCreateGames = event => {
+  api.createGame()
+  event.preventDefault()
+  if (!playerTurn) {
+    ui.onShowGameBoardSuccess()
+    ui.onNextTurnSuccess('x')
+  } else {
+    playerTurn = 'x'
+    gameLogic.gameBoard = ['', '', '', '', '', '', '', '', '']
+    ui.onResetGameSuccess() // after this we have playerTurn=x and turn=0
+  }
+  /// api stuff there
+}
+
 const onUpdateGame = event => {
   event.preventDefault()
+  if (store.turn === 0) {
+    ui.onNextTurnSuccess('o')
+  } else {
+    console.log(playerTurn)
+    ui.onNextTurnSuccess(playerTurn)
+  }
   if (store.over) {
     $('#message').html('Sorry, this game is over!')
     return
   }
   const id = event.target.id
   if (isCellFree(id)) {
-    if (playerTurn === 'x') {
+    if (playerTurn === 'x' && store.turn !== 0) {
       playerTurn = 'o'
     } else {
       playerTurn = 'x'
@@ -41,11 +65,13 @@ const onUpdateGame = event => {
   gameLogic.gameBoard[id] = playerTurn
   if (gameLogic.winningCombos(gameLogic.gameBoard)) {
     ui.onWinnerSuccess(playerTurn)
+    playerTurn = 'x'
     // api.STUFF HERE
     //   .then HERE
     //   .catch HERE
   } else if (gameLogic.isBoardFull(store.turn)) {
     ui.onTieSuccess()
+    playerTurn = 'x'
     // api.STUFF HERE
     //   .then HERE
     //   .catch HERE
@@ -53,5 +79,6 @@ const onUpdateGame = event => {
 }
 
 module.exports = {
-  onUpdateGame
+  onUpdateGame,
+  onCreateGames
 }

@@ -43,7 +43,7 @@ const winningCombos = gameBoard => {
     store.over = true
     console.log('over' + store.over)
     return true
-  } else if (store.turn === 8) {
+  } else if (store.turn === 9) {
     console.log('its a tie')
   } else {
     store.over = false

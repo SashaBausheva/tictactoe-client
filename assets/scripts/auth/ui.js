@@ -3,43 +3,58 @@
 const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  $('h3').html('')
-  $('#message').html('Signed up successfully! <br /> <img src="https://media.giphy.com/media/RyXVu4ZW454IM/giphy.gif" width="200px">')
+  $('#sign-in-message').html('Signed up successfully! <br /> <img src="https://media.giphy.com/media/RyXVu4ZW454IM/giphy.gif" width="200px">')
+  document.getElementById('sign-up').style.display = 'none'
+  document.getElementById('sign-in').style.display = 'block'
+  document.getElementById('sign-up-btn').style.display = 'none'
+  setTimeout(() => $('#sign-in-message').text(''), 2000)
 }
 
 const onSignUpFailure = responseData => {
-  $('h3').html('')
-  $('#message').html('Failed to sign up')
+  $('#sign-in-message').html('Failed to sign up')
 }
 
 const onSignInSuccess = responseData => {
-  $('h3').html('')
-  $('#message').html('Signed in successfully! <br /> <img src="https://media.giphy.com/media/RyXVu4ZW454IM/giphy.gif" width="200px">')
+  $('#sign-in-message').html('Signed in successfully! <br /> <img src="https://media.giphy.com/media/RyXVu4ZW454IM/giphy.gif" width="200px">')
+  document.getElementById('game-buttons').style.display = 'block'
+  document.getElementById('sign-in').style.display = 'none'
+  document.getElementById('sign-in-btn').style.display = 'none'
+  document.getElementById('sign-up-btn').style.display = 'none'
+  document.getElementById('change-password-btn').style.display = 'inline'
+  document.getElementById('sign-out-btn').style.display = 'inline'
+  setTimeout(() => $('#sign-in-message').text(''), 2000)
 
   store.user = responseData.user
 }
 
 const onSignInFailure = responseData => {
-  $('h3').html('')
-  $('#message').html('Failed to sign in')
+  $('#sign-in-message').html('Failed to sign in')
+  setTimeout(() => $('#sign-in-message').text(''), 2000)
 }
 
 const onChangePasswordSuccess = responseData => {
-  $('#change-pw-message').html('<br />Password changed successfully!')
+  $('#changePasswordModalTitle').html('Password changed successfully!')
+  setTimeout(() => $('#changePasswordModalTitle').text('Change Again?'), 2000)
 }
 
 const onChangePasswordFailure = responseData => {
-  $('#change-pw-message').html('<br />Failed!')
+  $('#changePasswordModalTitle').html('Failed!')
+  setTimeout(() => $('#changePasswordModalTitle').text('Change Password'), 2000)
 }
 
 const onSignOutSuccess = () => {
-  $('h3').html('')
-  $('#message').html('Signed out successfully! <br /> <img src="https://media.giphy.com/media/RyXVu4ZW454IM/giphy.gif" width="200px">')
+  $('#sign-in-message').html('Signed out successfully! <br /> <img src="https://media.giphy.com/media/RyXVu4ZW454IM/giphy.gif" width="200px">')
+  document.getElementById('game-buttons').style.display = 'none'
+  document.getElementById('sign-in').style.display = 'block'
+  document.getElementById('sign-in-btn').style.display = 'inline'
+  document.getElementById('sign-up-btn').style.display = 'inline'
+  document.getElementById('change-password-btn').style.display = 'none'
+  document.getElementById('sign-out-btn').style.display = 'none'
+  document.getElementById('gameboard').style.display = 'none'
 }
 
 const onSignOutFailure = () => {
-  $('h3').html('')
-  $('#message').html('Failed to sign out')
+  $('#sign-in-message').html('Failed to sign out')
 }
 
 module.exports = {
