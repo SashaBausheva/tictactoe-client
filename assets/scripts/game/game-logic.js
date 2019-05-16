@@ -20,21 +20,39 @@ const store = require('../store')
 // diag2 = [2, 4, 6]
 
 const gameBoard = ['', '', '', '', '', '', '', '', '']
+store.turn = 0
 
-const winningCombos = gameboard => {
-  if ((gameBoard[0] === 'x' && gameBoard[1] === 'x' && gameBoard[2] === 'x') ||
-  (gameBoard[3] === gameBoard[4] === gameBoard[5]) ||
-  (gameBoard[6] === gameBoard[7] === gameBoard[8]) ||
-  (gameBoard[0] === gameBoard[3] === gameBoard[6]) ||
-  (gameBoard[1] === gameBoard[4] === gameBoard[7]) ||
-  (gameBoard[2] === gameBoard[5] === gameBoard[8]) ||
-  (gameBoard[0] === gameBoard[4] === gameBoard[8]) ||
-  (gameBoard[2] === gameBoard[4] === gameBoard[6])) {
-    console.log('we have a winner!')
+const isBoardFull = turnNumber => {
+  if (turnNumber === 9) {
+    store.over = true
+    return true
+  } else {
+    store.over = false
+    return false
+  }
+}
+const winningCombos = gameBoard => {
+  if ((gameBoard[0] && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) ||
+  (gameBoard[3] && gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5]) ||
+  (gameBoard[6] && gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8]) ||
+  (gameBoard[0] && gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6]) ||
+  (gameBoard[1] && gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7]) ||
+  (gameBoard[2] && gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8]) ||
+  (gameBoard[0] && gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8]) ||
+  (gameBoard[2] && gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6])) {
+    store.over = true
+    console.log('over' + store.over)
+    return true
+  } else if (store.turn === 8) {
+    console.log('its a tie')
+  } else {
+    store.over = false
+    console.log('over' + store.over)
   }
 }
 
 module.exports = {
   gameBoard,
-  winningCombos
+  winningCombos,
+  isBoardFull
 }
