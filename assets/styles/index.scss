@@ -1,11 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
 
-$alt-color: $cyan;
 $body-bg-color: #92a8d1;
 $light: #f9d5e5;
 $box-color: #f7786b;
 $box-hover: #f7cac9;
 $dark: #034f84;
+$link: #0964a5;
+$link-hover: #bc5a45;
+
+a {
+  text-decoration: underline;
+  color: $link;
+  &:hover {
+    color: $link-hover;
+  }
+}
 
 body {
   background-color: $body-bg-color;
@@ -28,6 +37,17 @@ body {
     color: $dark;
     transition: .3s;
   }
+}
+
+.box-small {
+  align-items: center;
+  background-color: $box-color;
+  border: 1px solid $light;
+  color: $light;
+  font-size: 2rem;
+  display: flex;
+  height: 7vh;
+  justify-content: center;
 }
 
 button {
@@ -54,6 +74,9 @@ h1 {
   padding-top: 12px;
 }
 
+input {
+  padding-bottom: 3px;
+}
 
 #sign-out {
   display: inline;
@@ -64,9 +87,15 @@ h1 {
   width: 50vh;
 }
 
+.game-forms {
+  margin: 0 auto;
+  width: 21vh;
+}
+
 .btn-game {
   background-color: $light;
   color: $dark;
+  margin-top: 3px;
 }
 
 .img-wrapper {
@@ -83,12 +112,21 @@ h1 {
   width: 45vh;
 }
 
+.gameboard-small {
+  width: 15vh;
+}
+
 .row {
   align-content: center;
   justify-content: center;
 }
 
 .container {
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.container-small {
   justify-content: center;
   margin: 0 auto;
 }

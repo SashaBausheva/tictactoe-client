@@ -8,6 +8,12 @@ const onFailure = () => {
   $('#message').html('something went wrong!')
 }
 
+const onShowFailure = () => {
+  $('#past-game-message').fadeIn('fast')
+  $('#past-game-message').html(`This game doesn't exist or it's not yours to look at!`)
+  $('#past-game-message').delay(3000).fadeOut('fast')
+}
+
 const onGetGamesSuccess = (gameData) => {
   console.log('this function is working')
   store.games = gameData.games.length
@@ -85,11 +91,27 @@ const onUpdateGameSuccess = (playerTurn, cell) => {
   }
 }
 
+const onShowSuccess = responseData => {
+  const gameInfo = responseData.game.cells
+  console.log(gameInfo)
+  let cellIndex = 0
+  gameInfo.forEach(function (element) {
+    const cellId = 'small-' + cellIndex
+    console.log(cellId)
+    const cell = document.getElementById(cellId)
+    console.log(cell)
+    $(cell).html(element)
+    cellIndex++
+  })
+}
+
 module.exports = {
   onTieSuccess,
   onUpdateGameSuccess,
   onCreateGameSuccess,
   onResetGameSuccess,
   onGetGamesSuccess,
-  onFailure
+  onFailure,
+  onShowSuccess,
+  onShowFailure
 }

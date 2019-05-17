@@ -29,7 +29,7 @@
         <h1>Tic Tac Toe</h1>
         <hr>
         <section class="welcome-message">
-          <p>Welcome to Tic Tac Toe, the most exciting and unpredictable game out of them all!</p>
+          <p>Welcome to Tic Tac Toe, the most exciting and unpredictable game of them all!</p>
           <div class="img-wrapper">
             <img alt="Armed Tic-Tac-Toe Battle" src="./public/images/welcome-img.gif" />
             <figcaption>It can get pretty heated.</figcaption>
@@ -117,9 +117,34 @@
       <div id="game-buttons">
       <button class="btn btn-game" id="create-games">New Game</button>
       <hr>
-      <button class="btn btn-game" id="get-games">See All Games Played</button>
+      <button class="btn btn-game" id="get-games">Number of Games Played</button>
       <p id="game-number-message"></p>
+      <hr>
+      <button class="btn btn-game" id="btn-look-up-game">Look Up Game</button>
+      <div id="show-game-div"><form id="show-game" class="container game-forms">
+        <div class="form-group">
+          <label for="show-game">Look Up Game</label>
+          <input class="form-control" type="number" name="game[id]" placeholder="ID" />
+          <input type="submit" class="btn btn-game" value="Show Game" />
+        </div>
+      </form>
+      <p id="past-game-message"></p>
+      <div class="container-small gameboard-small">
+
+        <div class="row">
+          <div id="small-0" class="col-4 box-small"></div>
+          <div id="small-1" class="col-4 box-small"></div>
+          <div id="small-2" class="col-4 box-small"></div>
+          <div id="small-3" class="col-4 box-small"></div>
+          <div id="small-4" class="col-4 box-small"></div>
+          <div id="small-5" class="col-4 box-small"></div>
+          <div id="small-6" class="col-4 box-small"></div>
+          <div id="small-7" class="col-4 box-small"></div>
+          <div id="small-8" class="col-4 box-small"></div>
+        </div>
+      </div>
     </div>
+  </div>
       <footer>
         <hr>
         <p class="footer">

@@ -5,12 +5,14 @@ const gameLogic = require('./game-logic')
 const store = require('../store')
 const ui = require('./ui')
 const api = require('./api')
+const getFormFields = require('../../../lib/get-form-fields')
 // const getFormFields = require('../../../lib/get-form-fields')
 
 document.getElementById('gameboard').style.display = 'none'
 document.getElementById('game-status').style.display = 'none'
 document.getElementById('game-buttons').style.display = 'none'
 document.getElementById('message').style.display = 'none'
+document.getElementById('show-game-div').style.display = 'none'
 
 const onCreateGames = event => {
   event.preventDefault()
@@ -48,11 +50,21 @@ const onGetGames = event => {
   event.preventDefault()
   api.getGames()
     .then(ui.onGetGamesSuccess)
-    .catch(ui.Failure)
+    .catch(ui.onFailure)
+}
+
+const onShow = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.show(formData)
+    .then(ui.onShowSuccess)
+    .catch(ui.onShowFailure)
 }
 
 module.exports = {
   onUpdateGame,
   onCreateGames,
-  onGetGames
+  onGetGames,
+  onShow
 }
