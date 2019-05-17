@@ -33,4 +33,8 @@ $(() => {
   $('.box').on('click', gameEvents.onUpdateGame)
   $('#create-games').on('click', gameEvents.onCreateGames)
   $('#get-games').on('click', gameEvents.onGetGames)
+  $('#show-game').on('submit', gameEvents.onShow)
+  $('#btn-look-up-game').on('click', function () {
+    $('#show-game-div').fadeIn('fast')
+  })
 })

@@ -8,6 +8,12 @@ const onFailure = () => {
   $('#message').html('something went wrong!')
 }
 
+const onShowFailure = () => {
+  $('#past-game-message').fadeIn('fast')
+  $('#past-game-message').html(`This game doesn't exist or it's not yours to look at!`)
+  $('#past-game-message').delay(3000).fadeOut('fast')
+}
+
 const onGetGamesSuccess = (gameData) => {
   console.log('this function is working')
   store.games = gameData.games.length
@@ -59,19 +65,19 @@ const onResetGameSuccess = () => {
   store.turn = 0
 }
 
-const onTieSuccess = () => {
-  $('#message').fadeIn('fast')
-  $('#message').html('Game Over! It is a tie!')
-  store.over = true
-}
+// const onTieSuccess = () => {
+//   $('#message').fadeIn('fast')
+//   $('#message').html('Game Over! It is a tie!')
+//   store.over = true
+// }
 
 const onUpdateGameSuccess = (playerTurn, cell) => {
   $(cell).text(`${store.player}`)
   gameLogic.gameBoard[store.id] = store.player
   store.cells = gameLogic.gameBoard
   if (gameLogic.winningCombos(gameLogic.gameBoard)) {
-  } else if (gameLogic.isBoardFull(store.turn)) {
-    onTieSuccess()
+  // } else if (gameLogic.isBoardFull(store.turn)) {
+  //   onTieSuccess() // no need to check if the board is full twice
   } else if (store.player === 'x') {
     store.player = 'o'
     document.getElementById('message').style.display = 'none'
@@ -85,11 +91,23 @@ const onUpdateGameSuccess = (playerTurn, cell) => {
   }
 }
 
+const onShowSuccess = responseData => {
+  const gameInfo = responseData.game.cells
+  let cellIndex = 0
+  gameInfo.forEach(function (element) {
+    const cellId = 'small-' + cellIndex
+    const cell = document.getElementById(cellId)
+    $(cell).html(element)
+    cellIndex++
+  })
+}
+
 module.exports = {
-  onTieSuccess,
   onUpdateGameSuccess,
   onCreateGameSuccess,
   onResetGameSuccess,
   onGetGamesSuccess,
-  onFailure
+  onFailure,
+  onShowSuccess,
+  onShowFailure
 }

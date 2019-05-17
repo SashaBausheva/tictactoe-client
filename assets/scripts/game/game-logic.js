@@ -2,7 +2,7 @@
 
 const store = require('../store')
 
-// gameboard = ['', '', '', '', '', '', '', '', ''] 9 elements total
+// gameboard = ['', '', '', '', '', '', '', '', ''] 9 elements
 
 // [0, 1, 2]
 // [3, 4, 5]
@@ -10,27 +10,28 @@ const store = require('../store')
 
 // Winning combinations:
 
-// row1 = [0, 1, 2]
-// row2 = [3, 4, 5]
-// row3 = [6, 7, 8]
-// column1 = [0, 3, 6]
-// column2 = [1, 4, 7]
-// column3 = [2, 5, 8]
-// diag1 = [0, 4, 8]
-// diag2 = [2, 4, 6]
+// [0, 1, 2] - row 1
+// [3, 4, 5] - row 2
+// [6, 7, 8] - row 3
+// [0, 3, 6] - col 1
+// [1, 4, 7] - col 2
+// [2, 5, 8] - col 3
+// [0, 4, 8] - diag 1
+// [2, 4, 6] - diag 2
 
 const gameBoard = ['', '', '', '', '', '', '', '', '']
 store.turn = 0
 
-const isBoardFull = turnNumber => {
-  if (turnNumber === 9) {
-    store.over = true
-    return true
-  } else {
-    store.over = false
-    return false
-  }
-}
+// const isBoardFull = turnNumber => {
+//   if (turnNumber === 9) {
+//     store.over = true
+//     return true
+//   } else {
+//     store.over = false
+//     return false
+//   }
+// }
+
 const winningCombos = gameBoard => {
   if ((gameBoard[0] && gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2]) ||
   (gameBoard[3] && gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5]) ||
@@ -44,22 +45,24 @@ const winningCombos = gameBoard => {
     console.log('over' + store.over)
     document.getElementById('message').style.display = 'none'
     $('#message').fadeIn('fast')
-    $('#message').html(`Game over! Amazing player ${store.player} wins!`)
+    $('#message').html(`Game Over: Player ${store.player} wins!`)
     return true
+    // Whoever hits one of the listed winning combos on this turn wins
   } else if (store.turn === 9) {
     document.getElementById('message').style.display = 'none'
     $('#message').fadeIn('fast')
-    $('#message').html(`iiiit's a tie!`)
+    $('#message').html(`Game Over: It's a tie!`)
     store.over = true
     return true
+    // Valid turns: 0-8. Turn 9 means the board is full, so it's a tie
   } else {
     store.over = false
-    console.log('game is not over')
+    return false
+    // Winning combos haven't been hit, and the board isn't full yet
   }
 }
 
 module.exports = {
   gameBoard,
-  winningCombos,
-  isBoardFull
+  winningCombos
 }
