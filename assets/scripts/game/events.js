@@ -10,6 +10,7 @@ const api = require('./api')
 document.getElementById('gameboard').style.display = 'none'
 document.getElementById('game-status').style.display = 'none'
 document.getElementById('game-buttons').style.display = 'none'
+document.getElementById('message').style.display = 'none'
 
 const onCreateGames = event => {
   event.preventDefault()
@@ -26,6 +27,8 @@ const onUpdateGame = event => {
   const cell = event.target
   store.id = id
   if (store.cells[store.id] && !store.over) {
+    document.getElementById('message').style.display = 'none'
+    $('#message').fadeIn('fast')
     $('#message').html('Sorry, this cell is taken!')
   } else if (!store.over) {
     api.updateGame(store.id, store.player, store.over)
@@ -34,6 +37,8 @@ const onUpdateGame = event => {
     store.turn++
     console.log(store.cells)
   } else {
+    document.getElementById('message').style.display = 'none'
+    $('#message').fadeIn('fast')
     $('#message').html(`Sorry, the game's over!`)
   }
   // console.log(store.over)

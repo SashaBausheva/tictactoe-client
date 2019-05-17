@@ -8,6 +8,7 @@ document.getElementById('sign-up').style.display = 'none'
 document.getElementById('sign-in').style.display = 'none'
 document.getElementById('change-password-btn').style.display = 'none'
 document.getElementById('sign-out-btn').style.display = 'none'
+document.getElementById('sign-in-message').style.display = 'none'
 
 const onSignUp = event => {
   event.preventDefault()

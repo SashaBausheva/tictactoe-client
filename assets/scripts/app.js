@@ -13,11 +13,13 @@ $(() => {
   // your JS code goes here
   $('#sign-up-btn').on('click', function () {
     $('#sign-in').fadeOut('fast')
-    $('#sign-up').delay(150).fadeIn('fast')
+    $('.welcome-message').fadeOut('fast')
+    $('#sign-up').delay(200).fadeIn('fast')
   })
   $('#sign-in-btn').on('click', function () {
     $('#sign-up').fadeOut('fast')
-    $('#sign-in').delay(150).fadeIn('fast')
+    $('.welcome-message').fadeOut('fast')
+    $('#sign-in').delay(200).fadeIn('fast')
   })
   $('#change-password-btn').on('click', function () {
     $('#change-password').fadeIn('fast')
