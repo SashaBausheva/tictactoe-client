@@ -12,15 +12,19 @@ const onGetGamesSuccess = (gameData) => {
   store.games = gameData.games.length
   console.log('number of games' + store.games)
   if (!store.games) {
+    $('#game-number-message').fadeIn('fast')
     $('#game-number-message').text(`You haven't played yet! Come on, have some fun!`)
     $('#game-number-message').delay(3000).fadeOut('fast')
   } else if (store.games < 10) {
+    $('#game-number-message').fadeIn('fast')
     $('#game-number-message').text(`You've played ${store.games} games. Not nearly enough!`)
     $('#game-number-message').delay(3000).fadeOut('fast')
   } else if (store.games < 50) {
+    $('#game-number-message').fadeIn('fast')
     $('#game-number-message').text(`You've played ${store.games} games. Time for an international tic-tac-toe championship!`)
     $('#game-number-message').delay(3000).fadeOut('fast')
   } else {
+    $('#game-number-message').fadeIn('fast')
     $('#game-number-message').text(`You've played ${store.games} games. You are insane. Get some sleep. Or a life.`)
     $('#game-number-message').delay(3000).fadeOut('fast')
   }
@@ -52,22 +56,18 @@ const onTieSuccess = () => {
 }
 
 const onUpdateGameSuccess = (playerTurn, cell) => {
-  if (store.cells[store.id]) {
-    $('#message').html('Sorry, this cell is taken!')
+  $(cell).text(`${store.player}`)
+  gameLogic.gameBoard[store.id] = store.player
+  store.cells = gameLogic.gameBoard
+  if (gameLogic.winningCombos(gameLogic.gameBoard)) {
+  } else if (gameLogic.isBoardFull(store.turn)) {
+    onTieSuccess()
+  } else if (store.player === 'x') {
+    store.player = 'o'
+    $('#message').html(`It's ${store.player}'s turn!`)
   } else {
-    $(cell).text(`${store.player}`)
-    gameLogic.gameBoard[store.id] = store.player
-    store.cells = gameLogic.gameBoard
-    if (gameLogic.winningCombos(gameLogic.gameBoard)) {
-    } else if (gameLogic.isBoardFull(store.turn)) {
-      onTieSuccess()
-    } else if (store.player === 'x') {
-      store.player = 'o'
-      $('#message').html(`It's ${store.player}'s turn!`)
-    } else {
-      store.player = 'x'
-      $('#message').html(`It's ${store.player}'s turn!`)
-    }
+    store.player = 'x'
+    $('#message').html(`It's ${store.player}'s turn!`)
   }
 }
 

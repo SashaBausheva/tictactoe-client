@@ -25,7 +25,9 @@ const onUpdateGame = event => {
   const id = event.target.id
   const cell = event.target
   store.id = id
-  if (!store.over) {
+  if (store.cells[store.id] && !store.over) {
+    $('#message').html('Sorry, this cell is taken!')
+  } else if (!store.over) {
     api.updateGame(store.id, store.player, store.over)
       .then(ui.onUpdateGameSuccess(store.id, cell))
       .catch(ui.onFailure)
