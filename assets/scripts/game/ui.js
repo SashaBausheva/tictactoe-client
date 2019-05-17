@@ -65,19 +65,19 @@ const onResetGameSuccess = () => {
   store.turn = 0
 }
 
-const onTieSuccess = () => {
-  $('#message').fadeIn('fast')
-  $('#message').html('Game Over! It is a tie!')
-  store.over = true
-}
+// const onTieSuccess = () => {
+//   $('#message').fadeIn('fast')
+//   $('#message').html('Game Over! It is a tie!')
+//   store.over = true
+// }
 
 const onUpdateGameSuccess = (playerTurn, cell) => {
   $(cell).text(`${store.player}`)
   gameLogic.gameBoard[store.id] = store.player
   store.cells = gameLogic.gameBoard
   if (gameLogic.winningCombos(gameLogic.gameBoard)) {
-  } else if (gameLogic.isBoardFull(store.turn)) {
-    onTieSuccess()
+  // } else if (gameLogic.isBoardFull(store.turn)) {
+  //   onTieSuccess() // no need to check if the board is full twice
   } else if (store.player === 'x') {
     store.player = 'o'
     document.getElementById('message').style.display = 'none'
@@ -93,20 +93,16 @@ const onUpdateGameSuccess = (playerTurn, cell) => {
 
 const onShowSuccess = responseData => {
   const gameInfo = responseData.game.cells
-  console.log(gameInfo)
   let cellIndex = 0
   gameInfo.forEach(function (element) {
     const cellId = 'small-' + cellIndex
-    console.log(cellId)
     const cell = document.getElementById(cellId)
-    console.log(cell)
     $(cell).html(element)
     cellIndex++
   })
 }
 
 module.exports = {
-  onTieSuccess,
   onUpdateGameSuccess,
   onCreateGameSuccess,
   onResetGameSuccess,

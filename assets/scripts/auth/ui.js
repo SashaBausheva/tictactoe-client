@@ -4,16 +4,18 @@ const store = require('../store')
 
 const onSignUpSuccess = responseData => {
   $('#sign-in-message').html('Signed up successfully!')
+  $('#sign-in-message').fadeIn('slow')
   document.getElementById('sign-up').style.display = 'none'
   document.getElementById('sign-in').style.display = 'block'
-  document.getElementById('sign-up-btn').style.display = 'none'
-  setTimeout(() => $('#sign-in-message').text(''), 2000)
+  setTimeout(() => $('#sign-in-message').fadeOut('slow'), 3000)
   $('form').trigger('reset')
 }
 
 const onSignUpFailure = responseData => {
   $('#sign-in-message').html('Failed to sign up')
+  $('#sign-in-message').fadeIn('slow')
   $('form').trigger('reset')
+  setTimeout(() => $('#sign-in-message').fadeOut('slow'), 3000)
 }
 
 const onSignInSuccess = responseData => {
@@ -67,6 +69,7 @@ const onSignOutSuccess = () => {
   document.getElementById('change-password-btn').style.display = 'none'
   document.getElementById('sign-out-btn').style.display = 'none'
   document.getElementById('gameboard').style.display = 'none'
+  document.getElementById('show-game-div').style.display = 'none'
   $('form').trigger('reset')
 }
 
