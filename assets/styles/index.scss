@@ -1,24 +1,31 @@
 @import '~bootstrap/scss/bootstrap';
 
 $alt-color: $cyan;
-$body-bg-color: $gray-200;
-$font-color: $light;
+$body-bg-color: #92a8d1;
+$light: #f9d5e5;
+$box-color: #f7786b;
+$box-hover: #f7cac9;
+$dark: #034f84;
 
 body {
   background-color: $body-bg-color;
+  color: $dark;
+  font-family: 'Didact Gothic', sans-serif;
   text-align: center;
 }
 
 .box {
   align-items: center;
-  background-color: $secondary;
-  border: 1px solid $white;
-  color: $font-color;
+  background-color: $box-color;
+  border: 1px solid $light;
+  color: $light;
+  font-size: 2rem;
   display: flex;
-  height: 25vh;
+  height: 15vh;
   justify-content: center;
   &:hover {
-    background-color: $secondary;
+    background-color: $box-hover;
+    color: $dark;
     transition: .3s;
   }
 }
@@ -26,6 +33,27 @@ body {
 button {
   margin: 10px;
 }
+
+figcaption {
+  font-size: 0.9rem;
+}
+
+footer {
+  margin: 0 auto;
+  bottom: 0;
+}
+
+.footer {
+  padding: 10px;
+  margin: 0 400px;
+  font-size: 0.8rem;
+}
+
+h1 {
+  font-family: 'Sawarabi Gothic', sans-serif;
+  padding-top: 12px;
+}
+
 
 #sign-out {
   display: inline;
@@ -36,12 +64,23 @@ button {
   width: 50vh;
 }
 
-.alt-color {
-  background-color: $alt-color;
+.btn-game {
+  background-color: $light;
+  color: $dark;
+}
+
+.img-wrapper {
+  background: $secondary;
+  border-radius: 20px;
+  color: $light;
+  margin: 0 auto;
+  padding: 15px;
+  padding-bottom: 10px;
+  width: 50vh;
 }
 
 .gameboard {
-  width: 75vh;
+  width: 45vh;
 }
 
 .row {
@@ -49,14 +88,17 @@ button {
   justify-content: center;
 }
 
-.containter {
+.container {
   justify-content: center;
-  margin: 40px;
-  padding: 30px;
+  margin: 0 auto;
 }
 
 .nav {
   justify-content: center;
+}
+
+.wrapper {
+  margin: 0 auto;
 }
 
 // $particles: 50;
