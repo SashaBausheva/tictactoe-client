@@ -30,7 +30,7 @@ const onGetGamesSuccess = (gameData) => {
     $('#game-number-message').delay(4000).fadeOut('fast')
   } else if (store.games < 50) {
     $('#game-number-message').fadeIn('fast')
-    $('#game-number-message').text(`You've played ${store.games} games. Time for an international tic-tac-toe championship!`)
+    $('#game-number-message').text(`You've played ${store.games} games. Time for an international tic-tac-toe tournament!`)
     $('#game-number-message').delay(4000).fadeOut('fast')
   } else {
     $('#game-number-message').fadeIn('fast')
