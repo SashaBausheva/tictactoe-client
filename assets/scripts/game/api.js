@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const createGame = () => {
-  // console.log('create game is invoked')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -35,7 +34,6 @@ const updateGame = (index, value, over) => {
 }
 
 const getGames = () => {
-  // console.log('create game is invoked')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',
@@ -46,7 +44,7 @@ const getGames = () => {
   })
 }
 
-const show = formData => {
+const showGame = formData => {
   const id = formData.game.id
   return $.ajax({
     url: config.apiUrl + '/games/' + id,
@@ -61,5 +59,5 @@ module.exports = {
   createGame,
   updateGame,
   getGames,
-  show
+  showGame
 }

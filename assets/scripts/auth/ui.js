@@ -44,7 +44,7 @@ const onChangePasswordSuccess = responseData => {
   document.getElementById('changePasswordModalTitle').style.display = 'none'
   $('#changePasswordModalTitle').fadeIn('fast')
   $('#changePasswordModalTitle').html('Password changed successfully!')
-  setTimeout(() => $('#changePasswordModalTitle').text('Change Again?'), 2000)
+  setTimeout(() => $('#changePasswordModalTitle').text('Change Again?'), 3000)
   $('form').trigger('reset')
 }
 
@@ -52,7 +52,7 @@ const onChangePasswordFailure = responseData => {
   document.getElementById('changePasswordModalTitle').style.display = 'none'
   $('#changePasswordModalTitle').fadeIn('fast')
   $('#changePasswordModalTitle').html('Failed to change password. Try again?')
-  setTimeout(() => $('#changePasswordModalTitle').text('Change Password'), 2000)
+  setTimeout(() => $('#changePasswordModalTitle').text('Change Password'), 3000)
   $('form').trigger('reset')
 }
 
@@ -70,6 +70,7 @@ const onSignOutSuccess = () => {
   document.getElementById('sign-out-btn').style.display = 'none'
   document.getElementById('gameboard').style.display = 'none'
   document.getElementById('show-game-div').style.display = 'none'
+  document.getElementById('game-id-message').style.display = 'none'
   $('form').trigger('reset')
 }
 

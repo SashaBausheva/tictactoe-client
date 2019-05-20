@@ -49,6 +49,7 @@ const onUpdateGame = event => {
   }
 }
 
+// index: get all games
 const onGetGames = event => {
   event.preventDefault()
   api.getGames()
@@ -56,11 +57,12 @@ const onGetGames = event => {
     .catch(ui.onFailure)
 }
 
-const onShow = event => {
+// show one game requested by ID
+const onShowGame = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  api.show(formData)
+  api.showGame(formData)
     .then(ui.onShowSuccess)
     .catch(ui.onShowFailure)
 }
@@ -69,5 +71,5 @@ module.exports = {
   onUpdateGame,
   onCreateGames,
   onGetGames,
-  onShow
+  onShowGame
 }
