@@ -36,5 +36,6 @@ $(() => {
   $('#show-game').on('submit', gameEvents.onShowGame)
   $('#btn-look-up-game').on('click', function () {
     $('#show-game-div').fadeIn('fast')
+    document.getElementById('btn-look-up-game').style.display = 'none'
   })
 })

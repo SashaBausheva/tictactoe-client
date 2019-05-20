@@ -1,4 +1,5 @@
-# Tic-Tac-Toe: A Single Page Application by Sasha Bausheva
+# Tic-Tac-Toe
+### A Single-Page Application by Sasha Bausheva
 
 A online version of the class tic-tac-toe game! Play against someone at the same terminal or play against yourself! Sign up and sign in are required to play; win detection and game statistics are provided for you.
 
@@ -18,7 +19,7 @@ You can access the application here: https://sashabausheva.github.io/tictactoe-c
 This project was created to complete one of General Assembly's Software Engineering Immersive (formerly WDI - Web Development Immersive) course assignments. This is my very first project completed as part of the course; it was created during my 3rd week at GA out of 12.
 
 ## Development Process
-1. Brainstorm the project design based on the project requirements.
+1. Brainstorm the project design based on the [project requirements](https://git.generalassemb.ly/ga-wdi-boston/game-project/blob/master/requirements.md).
 2. Create a set of [user stories](public/docs/user_stories.md) from the player's perspective to better understand the necessary and desired functions of the application.
 3. Sketch [project wireframes](public/images/wireframes) and adopt an initial UX design goal. The final interface ended up changing slightly after user testing and redesign.
 4. Based on the wireframe designs, create an empty gameboard interface using HTML and CSS complete with the "Game Status" title, game status paragraph, and new game input button.

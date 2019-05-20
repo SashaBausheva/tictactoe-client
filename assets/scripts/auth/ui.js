@@ -27,6 +27,7 @@ const onSignInSuccess = responseData => {
   document.getElementById('sign-up-btn').style.display = 'none'
   document.getElementById('change-password-btn').style.display = 'inline'
   document.getElementById('sign-out-btn').style.display = 'inline'
+  document.getElementById('btn-look-up-game').style.display = 'inline'
   setTimeout(() => $('#sign-in-message').fadeOut('slow'), 3000)
   $('form').trigger('reset')
 

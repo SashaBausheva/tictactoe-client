@@ -5,7 +5,7 @@ const gameLogic = require('./game-logic')
 
 const onFailure = () => {
   $('#message').fadeIn('fast')
-  $('#message').html('something went wrong!')
+  $('#message').html('Sorry, something went wrong!')
 }
 
 const onShowFailure = () => {
