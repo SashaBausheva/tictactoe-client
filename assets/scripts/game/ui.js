@@ -40,7 +40,6 @@ const onGetGamesSuccess = (gameData) => {
 }
 
 const onCreateGameSuccess = (gameData) => {
-  console.log('game data: ', gameData.game)
   $('#sign-in-message').html('')
   store.turn = 1
   store.gameID = gameData.game._id
