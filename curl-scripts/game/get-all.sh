@@ -1,4 +1,4 @@
-curl "https://tic-tac-toe-wdi.herokuapp.com/games" \
+curl "https://tic-tac-toe-api-production.herokuapp.com/games" \
   --include \
   --request GET \
   --header "Authorization: Token token=${TOKEN}" \
