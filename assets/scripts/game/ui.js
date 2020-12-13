@@ -42,7 +42,7 @@ const onGetGamesSuccess = (gameData) => {
 const onCreateGameSuccess = (gameData) => {
   $('#sign-in-message').html('')
   store.turn = 1
-  store.gameID = gameData.game.id
+  store.gameID = gameData.game._id
   store.cells = gameData.game.cells
   store.player = 'x'
   store.over = gameData.game.over

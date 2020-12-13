@@ -45,7 +45,7 @@ const getGames = () => {
 }
 
 const showGame = formData => {
-  const id = formData.game.id
+  const id = formData.game._id
   return $.ajax({
     url: config.apiUrl + '/games/' + id,
     method: 'GET',
