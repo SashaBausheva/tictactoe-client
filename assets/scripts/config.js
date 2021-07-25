@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://tic-tac-toe-api-production.herokuapp.com',
+  production: 'https://powerful-waters-45561.herokuapp.com',
   development: 'https://tic-tac-toe-api-development.herokuapp.com'
 }
 
