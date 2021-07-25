@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Sasha's Tic-Tac-Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Sawarabi+Gothic|Signika:600&display=swap" rel="stylesheet">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <!-- div wrapping the entire document -->
+      <div class="wrapper">
+        <!-- header start -->
+        <header>
+
+          <!-- navbar -->
+          <nav class="navbar-nav bg-dark" id="navbar">
+            <div class="container">
+              <button id="sign-up-btn" class="btn btn-secondary">Sign Up</button>
+              <button id="sign-in-btn" class="btn btn-secondary">Sign In</button>
+              <button id="change-password-btn" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#change-pw">Change Password</button>
+              <form id="sign-out">
+                <button id="sign-out-btn" type="submit" class="btn btn-secondary">Sign Out</button>
+              </form>
+            </div>
+          </nav>
+          <!-- navbar end -->
+
+          <!-- title & welcome message -->
+          <h1>Tic-Tac-Toe</h1>
+          <hr>
+          <section class="welcome-message">
+            <p>Welcome to Tic-Tac-Toe, the most exciting and unpredictable game of them all!</p>
+            <div class="img-wrapper">
+              <img alt="Armed Tic-Tac-Toe Battle" src="./public/images/welcome-img.gif" />
+              <figcaption>It can get pretty heated.</figcaption>
+            </div>
+            <br />
+            <small>
+            <p>You can sign in to play using these sample credentials:<br />
+              <b>Email:</b> sample@sample<br />
+              <b>Password:</b> sample</br>
+              Please avoid using your real passwords!<br />
+              Note: It might take the API a couple seconds to wake up.<br />
+            </p>
+          </small>
+          </section>
+          <p id="sign-in-message"></p>
+          <!-- title & welcome message end -->
+
+          <section class="auth-forms">
+            <div class="auth-forms" id="auth-forms">
+                <form id="sign-up">
+                  <div class="container form-group">
+                    <label for="formGroupSignIn">Sign Up To Play!</label>
+                    <input class="form-control" name="credentials[email]" type="email" placeholder="Email">
+                    <input class="form-control" name="credentials[password]" type="password" placeholder="Password">
+                    <input class="form-control" name="credentials[password_confirmation]" type="password" placeholder="Password Confirmation">
+                    <br />
+                    <small>
+                    <p>You can also sign in to play using these sample credentials:<br />
+                      <b>Email:</b> sample@sample<br />
+                      <b>Password:</b> sample</br>
+                      Please avoid using your real passwords!<br />
+                      Note: It might take the API a couple seconds to wake up.<br />
+                    </p>
+                  </small>
+                    <input type="submit" class="btn btn-secondary" value="Sign Up">
+                  </div>
+                </form>
+
+                <form id="sign-in">
+                  <div class="container form-group">
+                    <label for="formGroupSignIn">Sign In</label>
+                    <input class="form-control" name="credentials[email]" type="email" placeholder="Email">
+                    <input class="form-control" name="credentials[password]" type="password" placeholder="Password">
+                    <br />
+                    <small>
+                    <p>You can sign in to play using these sample credentials:<br />
+                      <b>Email:</b> sample@sample<br />
+                      <b>Password:</b> sample<br />
+                      Please avoid using your real passwords!<br />
+                      Note: It might take the API a couple seconds to wake up.<br />
+                    </p>
+                  </small>
+                    <input type="submit" class="btn btn-secondary" value="Sign In">
+                  </div>
+                </form>
+              </div>
+
+              <!-- change password modal -->
+              <div class="modal fade" id="change-pw" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="changePasswordModalTitle">Change Password</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="change-password" class="container auth-forms">
+                        <div class="form-group">
+                          <input class="form-control" name="passwords[old]" type="password" placeholder="Old Password">
+                          <input class="form-control" name="passwords[new]" type="password" placeholder="New Password">
+                          <br />
+                          <input type="submit" class="btn btn-secondary" value="Change It!">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- change password modal end -->
+            </section>
+          </header>
+          <!-- header end -->
+
+          <!-- main start -->
+          <main>
+
+            <h3 id="game-status">Game Status</h3>
+            <p id="message"></p>
+
+      <!-- GameBoard-->
+      <!-- required 'container' class wrapper for rows/columns -->
+            <div class="container gameboard" id="gameboard">
+              <div class="row">
+                <div data-cell-index="0" id="0" class="col-4 box"></div>
+                <div data-cell-index="1" id="1" class="col-4 box"></div>
+                <div data-cell-index="2" id="2" class="col-4 box"></div>
+                <div data-cell-index="3" id="3" class="col-4 box"></div>
+                <div data-cell-index="4" id="4" class="col-4 box"></div>
+                <div data-cell-index="5" id="5" class="col-4 box"></div>
+                <div data-cell-index="6" id="6" class="col-4 box"></div>
+                <div data-cell-index="7" id="7" class="col-4 box"></div>
+                <div data-cell-index="8" id="8" class="col-4 box"></div>
+              </div>
+            </div>
+            <!-- GameBoard end -->
+            <!-- game buttons start -->
+            <div id="game-buttons">
+              <button class="btn btn-game" id="create-games">New Game</button>
+              <p id="game-id-message"></p>
+              <hr>
+              <button class="btn btn-game" id="get-games">Number of Games Played</button>
+              <p id="game-number-message"></p>
+              <hr>
+              <section class="show-game">
+                <button class="btn btn-game" id="btn-look-up-game">Look Up Game</button>
+                <div id="show-game-div">
+                  <form id="show-game" class="container game-forms">
+                  <div class="form-group">
+                    <label for="show-game">Look Up Game</label>
+                    <input class="form-control" type="text" name="game[_id]" placeholder="ID" />
+                    <input type="submit" class="btn btn-game" value="Show Game" />
+                  </div>
+                  </form>
+                  <p id="past-game-message"></p>
+                  <!-- game buttons end -->
+                  <!-- small board -->
+                  <div class="container-small gameboard-small">
+
+                    <div class="row">
+                      <div id="small-0" class="col-4 box-small"></div>
+                      <div id="small-1" class="col-4 box-small"></div>
+                      <div id="small-2" class="col-4 box-small"></div>
+                      <div id="small-3" class="col-4 box-small"></div>
+                      <div id="small-4" class="col-4 box-small"></div>
+                      <div id="small-5" class="col-4 box-small"></div>
+                      <div id="small-6" class="col-4 box-small"></div>
+                      <div id="small-7" class="col-4 box-small"></div>
+                      <div id="small-8" class="col-4 box-small"></div>
+                    </div>
+                  </div>
+                  <!-- small board end -->
+                </div>
+            </section>
+          </div>
+        </main>
+          <!-- main end -->
+
+          <!-- footer start -->
+            <footer>
+              <hr>
+              <p class="footer">
+                This project was created to complete one of General Assembly's Software Engineering Immersive course assignments. You can find my other projects on my <a href="https://github.com/SashaBausheva">GitHub Page</a>. If you would like to connect, please feel free to send me a request on <a href="https://www.linkedin.com/in/sasha-bausheva/">LinkedIn</a>.
+              </p>
+            </footer>
+          <!-- footer end -->
+          </div>
+          <!-- document wrapper div end -->
+
+    </body>
+</html>
