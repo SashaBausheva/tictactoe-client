@@ -47,7 +47,7 @@
     "merge": "^2.1.1",
     "minimist": "^0.2.1",
     "node-libs-browser": "^2.1.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "on-build-webpack": "^0.1.0",
     "opn": "^5.4.0",
     "postcss-loader": "^2.1.6",
