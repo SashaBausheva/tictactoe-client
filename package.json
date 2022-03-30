@@ -45,7 +45,7 @@
     "lodash": "^4.17.21",
     "mem": "^4.0.0",
     "merge": "^2.1.1",
-    "minimist": "^0.2.1",
+    "minimist": "^1.2.6",
     "node-libs-browser": "^2.1.0",
     "node-sass": "^4.13.1",
     "on-build-webpack": "^0.1.0",
